@@ -1,11 +1,3 @@
-<script type="text/javascript" src="style/js/Chart.min.js"></script>
-<script type="text/javascript" src="style/js/home.min.js"></script>
-<script type="text/javascript" src="style/js/count.js"></script>
-<div class="clear"></div>
-<input type="hidden" id="resubmitToken" value="" />
-<a id="backtop" title="回到顶部" rel="nofollow"></a>
-</div><!-- end #container -->
-</div><!-- end #body -->
 <div id="footer">
 <div class="wrapper">
 <a href="h/about.html" target="_blank" rel="nofollow">联系我们</a>
