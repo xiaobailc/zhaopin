@@ -2,9 +2,10 @@
 <html >
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>互联网招聘平台demo</title>
+    <title><?php echo $title;?></title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <base href="<?php  echo base_url();?>"/>
     <link rel="stylesheet" type="text/css" href="style/css/style.css"/>
     <link rel="stylesheet" type="text/css" href="style/css/external.min.css"/>
     <link rel="stylesheet" type="text/css" href="style/css/popup.css"/>
