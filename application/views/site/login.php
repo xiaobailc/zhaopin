@@ -1,7 +1,7 @@
 <body id="login_bg">
     <div class="login_wrapper">
         <div class="login_header">
-            <a href="h/"><img src="style/images/logo_white.png" width="285" height="62" alt="招聘" /></a>
+            <a href=""><img src="style/images/logo_white.png" width="285" height="62" alt="招聘" /></a>
             <div id="cloud_s"><img src="style/images/cloud_s.png" width="81" height="52" alt="cloud" /></div>
             <div id="cloud_m"><img src="style/images/cloud_m.png" width="136" height="95"  alt="cloud" /></div>
         </div>
@@ -21,7 +21,7 @@
                 <input type="hidden" id="timestamp" name="timestamp" value=""/>
             </form>
             <div class="login_right">
-                <div>还没有拉勾帐号？</div>
+                <div>还没有帐号？</div>
                 <a  href="register.html"  class="registor_now">立即注册</a>
                 <div class="login_others">使用以下帐号直接登录:</div>
                 <a  href="h/ologin/auth/sina.html"  target="_blank" class="icon_wb" title="使用新浪微博帐号登录"></a>
@@ -48,7 +48,7 @@
             messages: {
                    email: {
                     required: "请输入登录邮箱地址",
-                    email: "请输入有效的邮箱地址，如：vivi@lagou.com"
+                    email: "请输入有效的邮箱地址，如：vivi@zhaopin.com"
                    },
                    password: {
                     required: "请输入密码"
