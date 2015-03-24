@@ -1,7 +1,8 @@
 <?php
 class Site extends CI_Controller{
     public function index(){
-        $this->load->helper('url');
+        $s = $this->session->all_userdata();
+        print_r($s);
         $data['title'] = "";
         $this->load->view('templates/header',$data);
         $this->load->view('site/index');

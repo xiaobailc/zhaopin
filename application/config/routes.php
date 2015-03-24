@@ -37,6 +37,7 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+$route['index'] = "site/index";
 $route['login'] = "user/login";
 $route['register'] = "user/register";
 

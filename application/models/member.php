@@ -21,4 +21,9 @@ class Member extends CI_Model{
         else
             return false;
     }
+    
+    public function islogin(){
+        $email = $this->session->userdata('email');
+        return empty($email)?false:true;
+    }
 }
