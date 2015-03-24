@@ -14,4 +14,8 @@
     <script src="style/js/ajaxfileupload.js" type="text/javascript"></script>
     <script src="style/js/additional-methods.js" type="text/javascript"></script>
     <!-- <script src="style/js/conv.js" type="text/javascript" ></script> -->
-</head>
+    <script type="text/javascript">
+    var ctx = "<?php echo base_url()?>";
+    //console.log(1);
+    </script>
+    </head>

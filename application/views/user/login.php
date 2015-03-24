@@ -1,7 +1,7 @@
 <body id="login_bg">
     <div class="login_wrapper">
         <div class="login_header">
-            <a href=""><img src="style/images/logo_white.png" width="285" height="62" alt="招聘" /></a>
+            <a href=""><img src="style/images/logo_white1.png" width="285" height="62" alt="招聘" /></a>
             <div id="cloud_s"><img src="style/images/cloud_s.png" width="81" height="52" alt="cloud" /></div>
             <div id="cloud_m"><img src="style/images/cloud_m.png" width="136" height="95"  alt="cloud" /></div>
         </div>
@@ -14,8 +14,8 @@
                 <span class="error" style="display:none;" id="beError"></span>
                 <label class="fl" for="remember"><input type="checkbox" id="remember" value="" checked="checked" name="autoLogin" /> 记住我</label>
                 <a href="reset.html" class="fr" target="_blank">忘记密码？</a>
-                <a style="color:#fff;" href="index.html" class="submitLogin" title="登 &nbsp; &nbsp; 录">登 &nbsp; &nbsp; 录</a>
-                <input type="hidden" id="callback" name="callback" value=""/>
+                <input type="hidden" id="callback" name="callback" value="<?php echo $callback?>"/>
+                <input type="submit" style="color:#fff;" class="submitLogin" value="登 &nbsp; &nbsp; 录" />
                 <input type="hidden" id="authType" name="authType" value=""/>
                 <input type="hidden" id="signature" name="signature" value=""/>
                 <input type="hidden" id="timestamp" name="timestamp" value=""/>
@@ -34,32 +34,32 @@
     $(function(){
         //验证表单
          $("#loginForm").validate({
-             /* onkeyup: false,
-            focusCleanup:true, */
+            onkeyup: false,
+            focusCleanup:true,
             rules: {
-                   email: {
+                email: {
                     required: true,
                     email: true
-                   },
-                   password: {
+                },
+                password: {
                     required: true
-                   }
+                }
             },
             messages: {
-                   email: {
+                email: {
                     required: "请输入登录邮箱地址",
                     email: "请输入有效的邮箱地址，如：vivi@zhaopin.com"
-                   },
-                   password: {
+                },
+                password: {
                     required: "请输入密码"
-                   }
+                }
             },
-            submitHandler:function(form){
+            submitHandler: function(form){
                 if($('#remember').prop("checked")){
                       $('#remember').val(1);
-                  }else{
+                }else{
                       $('#remember').val(null);
-                  }
+                }
                 var email = $('#email').val();
                 var password = $('#password').val();
                 var remember = $('#remember').val();
@@ -68,19 +68,21 @@
                 var authType = $('#authType').val();
                 var signature = $('#signature').val();
                 var timestamp = $('#timestamp').val();
+                var logintourl = $('#logintourl').val();
                 
                 $(form).find(":submit").attr("disabled", true);
                 $.ajax({
                     type:'POST',
                     data:{email:email,password:password,autoLogin:remember, callback:callback, authType:authType, signature:signature, timestamp:timestamp},
-                    url:ctx+'/user/login.json'
+                    dataType:'json',
+                    url:ctx+'user/ajaxlogin'
                 }).done(function(result) {
                     if(result.success){
-                         if(result.content.loginToUrl){
+                        if(result.content.loginToUrl){
                             window.location.href=result.content.loginToUrl;
                         }else{
-                            window.location.href=ctx+'/';
-                        } 
+                            window.location.href=ctx;
+                        }
                     }else{
                         $('#beError').text(result.msg).show();
                     }
