@@ -24,8 +24,9 @@ class User extends My_Controller
     {
         $post = $this->input->post();
         
-        //$this->load->model('Member', '', true);
+        $this->load->model('Member', '', true);
         $res = $this->Member->check_password($post['email'],$post['password']);
+        var_dump($res);
         if($res){
             $data['success'] = true;
             $data['content']['loginToUrl'] = $post['callback'];

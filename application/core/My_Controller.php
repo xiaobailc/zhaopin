@@ -9,6 +9,6 @@ class My_Controller extends CI_Controller
     public function is_logged_in()
     {
         $user = $this->session->userdata('email');
-        return isset($user);
+        return ($user===false||empty($user))?false:true;
     }
 }
