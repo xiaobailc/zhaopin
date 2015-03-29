@@ -1,24 +1,55 @@
 <body>
-<div id="body">
-<div id="header">
-<div class="wrapper">
-<a href="index.html" class="logo">
-<img src="style/images/logo.png" width="229" height="43" alt="专注京津冀IT招聘" />
-</a>
-<ul class="reset" id="navheader">
-<li class="current"><a href="index.html">首页</a></li>
-<li ><a href="companylist.html" >公司</a></li>
-<li ><a href="#" target="_blank">论坛</a></li>
-<li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
-<li ><a href="create.html" rel="nofollow">发布职位</a></li>
-</ul>
-<ul class="loginTop">
-<li><a href="login.html" rel="nofollow">登录</a></li> 
-<li>|</li>
-<li><a href="register.html" rel="nofollow">注册</a></li>
-</ul>
-</div>
-</div><!-- end #header -->
+    <div id="body">
+        <div id="header">
+            <div class="wrapper">
+                <a href="index.html" class="logo">
+                    <img src="style/images/logo.png" width="229" height="43" alt="专注京津冀IT招聘" />
+                </a>
+                <ul class="reset" id="navheader">
+                    <li class="current"><a href="index.html">首页</a></li>
+                    <li ><a href="companylist.html" >公司</a></li>
+                    <li ><a href="jianli.html" rel="nofollow">我的简历</a></li>
+                    <li ><a href="create.html" rel="nofollow">发布职位</a></li>
+                </ul>
+<?php if(!$login):?>
+                <ul class="loginTop">
+                    <li><a href="login.html" rel="nofollow">登录</a></li> 
+                    <li>|</li>
+                    <li><a href="register.html" rel="nofollow">注册</a></li>
+                </ul>
+<?php elseif($user_data['user_type']==0):?>
+                <dl class="collapsible_menu">
+					<dt>
+						<span id='nowrap'><?php echo $user_data['user_name']?>&nbsp;</span> 
+						<span class="red dn" id="noticeDot-0"></span>
+						<i></i>
+					</dt>
+					<dd><a rel="nofollow" href="jianli.html">我的简历</a></dd>
+					<dd><a href="collections.html">我收藏的职位</a></dd>
+					<dd><a href="delivery.html">我投递的职位 <span id="noticeNo" class="red dn">(0)</span></a></dd>
+					<dd class="btm"><a href="subscribe.html">我的订阅</a></dd>
+					<dd><a href="">我要招人</a></dd>
+					<dd><a href="accountBind.html">帐号设置</a></dd>
+					<dd class="logout"><a rel="nofollow" href="logout.html">退出</a></dd>
+				</dl>
+<?php else:?>				
+				<dl class="collapsible_menu">
+                    <dt>
+						<span id='nowrap'><?php echo $user_data['user_name']?>&nbsp;</span> 
+						<span class="red dn" id="noticeDot-0"></span>
+						<i></i>
+					</dt>
+                    <dd><a href="positions.html">我发布的职位</a></dd>
+                    <dd><a href="positions.html">我收到的简历</a></dd>
+                    <dd class="btm"><a href="myhome.html">我的公司主页</a></dd>
+                    <dd><a href="jianli.html">我要找工作</a></dd>
+                    <dd><a href="accountBind.html">帐号设置</a></dd>
+                    <dd class="logout"><a rel="nofollow" href="logout.html">退出</a></dd>
+                </dl>
+<?php endif;?>
+            </div>
+        </div>
+        <!-- end #header -->
 <div id="container">
 <div id="sidebar">
 <div class="mainNavs">

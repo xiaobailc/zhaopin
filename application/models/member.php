@@ -8,13 +8,13 @@ class Member extends CI_Model{
             return false;
         }
         if(md5($password)==$row['password'])
-            return true;
+            return $row;
         else 
             return false;
     }
     
     public function check_email($email){
-        $query = $this->db->get_where($this->table, ['email'=>$email],1);
+        $query = $this->db->select('email')->get_where($this->table, ['email'=>$email],1);
         $row = $query->row_array();
         if(empty($row))
             return true;
@@ -25,5 +25,10 @@ class Member extends CI_Model{
     public function islogin(){
         $email = $this->session->userdata('email');
         return empty($email)?false:true;
+    }
+    
+    public function register($data){
+        $res = $this->db->insert($this->table, $data);
+        return $res;
     }
 }

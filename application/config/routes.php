@@ -39,6 +39,7 @@
 */
 $route['index'] = "site/index";
 $route['login'] = "user/login";
+$route['logout'] = "user/logout";
 $route['register'] = "user/register";
 
 $route['default_controller'] = "site";

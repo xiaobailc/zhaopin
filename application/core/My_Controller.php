@@ -6,9 +6,9 @@ class My_Controller extends CI_Controller
         parent::__construct();
     }
     
-    public function is_logged_in()
+    protected function is_logged_in()
     {
-        $user = $this->session->userdata('email');
-        return ($user===false||empty($user))?false:true;
+        $user = $this->session->userdata('user_data');
+        return isset($user['user_name']);
     }
 }
